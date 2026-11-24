@@ -172,7 +172,6 @@ body {
   width: 310px;
   height: 100vh;
   background: #ffffff;
-
   padding: 22px;
 
   display: flex;
@@ -252,7 +251,6 @@ body {
 /* RESPONSIVE TABLET */
 
 @media (max-width: 1000px) {
-
   .website {
     grid-template-columns: minmax(0, 1fr) 240px;
   }
@@ -274,7 +272,6 @@ body {
 /* RESPONSIVE MOBILE */
 
 @media (max-width: 650px) {
-
   .website {
     height: auto;
     min-height: 100vh;

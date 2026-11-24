@@ -2,29 +2,67 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
+// GitHub Pages image path fix
+const imagePath = (name) => `${import.meta.env.BASE_URL}${name}`;
+
 const dresses = [
-  "/dress1.jpg",
-  "/dress2.jpg",
-  "/dress3.jpg"
+  imagePath("dress1.jpg"),
+  imagePath("dress2.jpg"),
+  imagePath("dress3.jpg")
 ];
 
 const collections = [
   [
-    { name: "DESIGNER TOTE BAG", price: "$160.00", image: "/handabg1.jpg" },
-    { name: "EVENING GOWN", price: "$180.00", image: "/dress4.jpg" },
-    { name: "PREMIUM FOOTWEAR", price: "$120.00", image: "/slipper.jpg" }
+    {
+      name: "DESIGNER TOTE BAG",
+      price: "$160.00",
+      image: imagePath("handabg1.jpg")
+    },
+    {
+      name: "EVENING GOWN",
+      price: "$180.00",
+      image: imagePath("dress4.jpg")
+    },
+    {
+      name: "PREMIUM FOOTWEAR",
+      price: "$120.00",
+      image: imagePath("slipper.jpg")
+    }
   ],
   [
-    { name: "CLASSIC HANDBAG", price: "$150.00", image: "/handbag.jpg" },
-    { name: "DESIGNER DRESS", price: "$190.00", image: "/dress5.jpg" },
-    { name: "FLORAL HEELS", price: "$130.00", image: "/shoe.jpg" }
+    {
+      name: "CLASSIC HANDBAG",
+      price: "$150.00",
+      image: imagePath("handbag.jpg")
+    },
+    {
+      name: "DESIGNER DRESS",
+      price: "$190.00",
+      image: imagePath("dress5.jpg")
+    },
+    {
+      name: "FLORAL HEELS",
+      price: "$130.00",
+      image: imagePath("shoe.jpg")
+    }
   ],
   [
-    { name: "LUXURY HANDBAG", price: "$170.00", image: "/handbag2.jpg" },
-    { name: "PARTY COLLECTION", price: "$200.00", image: "/earings.jpg" },
-    { name: "DESIGNER SHOES", price: "$140.00", image: "/shoe1.jpg" }
-  ],
- 
+    {
+      name: "LUXURY HANDBAG",
+      price: "$170.00",
+      image: imagePath("handbag2.jpg")
+    },
+    {
+      name: "PARTY COLLECTION",
+      price: "$200.00",
+      image: imagePath("earings.jpg")
+    },
+    {
+      name: "DESIGNER SHOES",
+      price: "$140.00",
+      image: imagePath("shoe1.jpg")
+    }
+  ]
 ];
 
 function App() {
@@ -32,7 +70,7 @@ function App() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActive(prev => (prev + 1) % dresses.length);
+      setActive((prev) => (prev + 1) % dresses.length);
     }, 3500);
 
     return () => clearInterval(timer);
@@ -40,7 +78,6 @@ function App() {
 
   return (
     <main className="website">
-
       <section className="main-banner">
 
         <div className="banner-heading">
@@ -63,7 +100,6 @@ function App() {
         </div>
 
         <div className="dress-stage">
-
           {dresses.map((image, index) => {
             const position =
               (index - active + dresses.length) % dresses.length;
@@ -73,22 +109,26 @@ function App() {
                 key={image}
                 className={`model model-${position}`}
               >
-                <img src={image} alt="Winter fashion collection" />
+                <img
+                  src={image}
+                  alt="Winter fashion collection"
+                />
               </div>
             );
           })}
-
         </div>
 
       </section>
 
       <aside className="product-sidebar" key={active}>
-
-        {collections[active].map((product, index) => (
+        {collections[active].map((product) => (
           <div className="product-card" key={product.image}>
 
             <div className="product-photo">
-              <img src={product.image} alt={product.name} />
+              <img
+                src={product.image}
+                alt={product.name}
+              />
             </div>
 
             <p className="product-name">{product.name}</p>
@@ -96,7 +136,6 @@ function App() {
 
           </div>
         ))}
-
       </aside>
 
     </main>
