@@ -1,0 +1,369 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+.website {
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  overflow: hidden;
+}
+
+/* MAIN BANNER */
+
+.main-banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+  background: linear-gradient(110deg, #f9fafb, #eef3f7);
+  overflow: hidden;
+}
+
+/* LEFT HEADING */
+
+.banner-heading {
+  position: absolute;
+  top: 7%;
+  left: 5%;
+  width: 320px;
+  z-index: 10;
+}
+
+.banner-heading h1 {
+  font-size: clamp(35px, 3vw, 50px);
+  line-height: 1.22;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: #92969b;
+}
+
+.banner-heading p {
+  max-width: 315px;
+  margin-top: 17px;
+  font-size: 13px;
+  line-height: 1.9;
+  font-weight: 400;
+  color: #999fa5;
+}
+
+/* DRESS STAGE */
+
+.dress-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.model {
+  position: absolute;
+  top: 50%;
+  width: 27%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+
+  transition:
+    left 1.5s ease-in-out,
+    filter 1.5s ease-in-out,
+    opacity 1.5s ease-in-out,
+    transform 1.5s ease-in-out;
+}
+
+.model img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+/* FIRST MODEL - HEAVY BLUR */
+
+.model-0 {
+  left: 23%;
+  filter: blur(5px);
+  opacity: 0.35;
+  transform: translate(-50%, -50%) scale(0.94);
+  z-index: 1;
+}
+
+/* SECOND MODEL - LIGHT BLUR */
+
+.model-1 {
+  left: 48%;
+  filter: blur(2px);
+  opacity: 0.65;
+  transform: translate(-50%, -50%) scale(0.97);
+  z-index: 2;
+}
+
+/* THIRD MODEL - CLEAR */
+
+.model-2 {
+  left: 69%;
+  filter: blur(0);
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 3;
+}
+
+/* FOURTH MODEL - CLEAR */
+
+.model-3 {
+  left: 91%;
+  filter: blur(0);
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 4;
+}
+
+/* BOTTOM SEASON TEXT */
+
+.season {
+  position: absolute;
+  bottom: 30px;
+  left: 5%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #85898e;
+  font-size: 10px;
+  letter-spacing: 2px;
+  z-index: 10;
+}
+
+.season-icon {
+  width: 43px;
+  height: 43px;
+  border: 1px solid #aeb3b8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: serif;
+  font-size: 16px;
+}
+
+/* RIGHT PRODUCT SIDEBAR */
+
+.product-sidebar {
+  width: 310px;
+  height: 100vh;
+  background: #ffffff;
+
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  gap: 14px;
+  overflow: hidden;
+}
+
+/* PRODUCT CARD */
+
+.product-card {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* PRODUCT IMAGE CONTAINER */
+
+.product-photo {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  background: #f7f7f7;
+}
+
+/* COMPLETE IMAGE - NO CROPPING */
+
+.product-photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center center;
+
+  display: block;
+  padding: 4px;
+
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-photo img {
+  transform: scale(1.04);
+}
+
+/* PRODUCT NAME */
+
+.product-name {
+  margin-top: 9px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #30343a;
+}
+
+/* PRODUCT PRICE */
+
+.product-price {
+  margin-top: 7px;
+  font-size: 11px;
+  color: #9ba0a5;
+}
+
+/* RESPONSIVE TABLET */
+
+@media (max-width: 1000px) {
+
+  .website {
+    grid-template-columns: minmax(0, 1fr) 240px;
+  }
+
+  .product-sidebar {
+    width: 240px;
+    padding: 18px;
+  }
+
+  .model {
+    width: 30%;
+  }
+
+  .banner-heading {
+    left: 4%;
+  }
+}
+
+/* RESPONSIVE MOBILE */
+
+@media (max-width: 650px) {
+
+  .website {
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .main-banner {
+    height: 750px;
+    min-height: 750px;
+  }
+
+  .banner-heading {
+    top: 25px;
+    left: 20px;
+    width: 90%;
+  }
+
+  .banner-heading h1 {
+    font-size: 36px;
+  }
+
+  .banner-heading p {
+    font-size: 11px;
+    max-width: 280px;
+  }
+
+  .model {
+    top: 65%;
+    width: 40%;
+    height: 65%;
+  }
+
+  .model-0 {
+    left: 15%;
+  }
+
+  .model-1 {
+    left: 40%;
+  }
+
+  .model-2 {
+    left: 65%;
+  }
+
+  .model-3 {
+    left: 90%;
+  }
+
+  .season {
+    bottom: 15px;
+    left: 20px;
+  }
+
+  /* MOBILE PRODUCT CARDS */
+
+  .product-sidebar {
+    width: 100%;
+    height: 240px;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+    padding: 12px;
+
+    overflow: hidden;
+  }
+
+  .product-card {
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-photo {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .product-photo img {
+    object-fit: contain;
+  }
+
+  .product-name {
+    font-size: 8px;
+  }
+
+  .product-price {
+    font-size: 9px;
+  }
+}
